@@ -3,7 +3,7 @@ FROM ubuntu:latest
 # 安装基础依赖
 RUN apt update && apt install -y curl tar bash
 
-# 直接下载官方编译好的最新版二进制包 (AMD64 架构)
+# 下载并解压 X-ui 二进制包（这是完整路径，请确保不要复制丢了）
 RUN curl -L "https://github.com" -o x-ui.tar.gz \
     && tar zxvf x-ui.tar.gz \
     && rm x-ui.tar.gz \
@@ -16,5 +16,5 @@ WORKDIR /usr/local/x-ui
 # 暴露面板端口
 EXPOSE 54321
 
-# 启动命令：直接运行二进制文件，跳过系统服务检查
+# 启动命令
 CMD ["./x-ui"]
